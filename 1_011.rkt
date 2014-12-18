@@ -20,7 +20,7 @@
 
 (define (func a b c) (+ a (* 2 b) (* 3 c)))
 
-(define (f-iter a b c n count) 
+(define (f-iter a b c n stepnumber) 
   (cond ((< (- n 3) 0) n)
-        ((= (- n 3) count) (func a b c))
-        (else (f-iter (func a b c) a b n (+ count 1)))))
+        ((= (- n 3) stepnumber) (func a b c))
+        (else (f-iter (func a b c) a b n (+ stepnumber 1)))))
