@@ -12,8 +12,10 @@
 ; computes elements of Pascal’s triangle by means of a recursive process.
 
 (define (pascal row col)
-  (cond ((= col row) 1)
-        ((= col 0) 1)
+  (cond ((= col 0) 1)
+        ((= col row) 1)
+        ((< col 0) 0)
+        ((> col row) 0)
         ((+ (pascal (- row 1) col) (pascal (- row 1) (- col 1))))))
 
 (pascal 4 0)
