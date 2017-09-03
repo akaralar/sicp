@@ -20,10 +20,9 @@
 (define (double x) (+ x x))
 (define (halve x) (/ x 2.0))
 
-(define (fast-*-iter a b sum)
-  (cond ((= b 0) sum)
-        ((even? b) (fast-*-iter a (halve b) (double sum)))
-        (else (fast-*-iter a (- b 1) (+ sum a)))))
-
 (define (fast-* a b)
-  (fast-*-iter a b 0))
+  (cond ((= b 0) 0)
+        ((even? b) (fast-* (double a) (halve b)))
+        (else (+ a (fast-* (double a) (halve (- b 1)))))))
+
+      
