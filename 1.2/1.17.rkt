@@ -22,7 +22,7 @@
 
 (define (fast-* a b)
   (cond ((= b 0) 0)
-        ((even? b) (fast-* (double a) (halve b)))
+        ((even? b) (double (fast-* a (halve b))))
         (else (+ a (fast-* (double a) (halve (- b 1)))))))
 
       
