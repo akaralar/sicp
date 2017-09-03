@@ -46,7 +46,9 @@
 ; after T1: (ap + aq + bq, aq + bp)
 ; after T2: (ap^2 + 2apq + 2aq^2 + 2bpq + bq^2,
 ;            2apq + aq^2 + bp^2 + bq^2)
-; and this should be equal to (ap′ + aq′ + bq′, aq′ + bp′) both in form and in
-; value. Solving for p′ and q′, we find
+; and this should be in the form(ap′ + aq′ + bq′, aq′ + bp′) and be equal to
+; expression after T2. Solving for p′ and q′, we find
 ; p′ = p^2 + q^2
 ; q′ = 2pq + q^2
+;
+; another solution on the web: https://kendyck.com/2005/05/13/solution-to-sicp-exercise-119/
