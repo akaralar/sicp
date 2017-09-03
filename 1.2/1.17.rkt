@@ -27,8 +27,3 @@
 
 (define (fast-* a b)
   (fast-*-iter a b 0))
-
-
-      
-      
-      
