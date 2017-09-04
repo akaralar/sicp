@@ -104,6 +104,11 @@
 (define (prime? n)
   (= n (smallest-divisor n)))
 
+<<<<<<< HEAD
+(#%require (only racket/base random))
+
+=======
+>>>>>>> 1.2
 (define (expmod base exp m)
   (cond ((= exp 0) 1)
         ((even? exp)
@@ -113,6 +118,9 @@
         (else
          (remainder
           (* base (expmod base (- exp 1) m))
+<<<<<<< HEAD
+          m))))
+=======
           m))))
 
 (#%require (only racket/base random))
@@ -126,3 +134,4 @@
         ((fermat-test n)
          (fast-prime? n (- times 1)))
         (else false)))
+>>>>>>> 1.2
