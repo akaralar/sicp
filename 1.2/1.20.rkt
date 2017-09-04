@@ -45,9 +45,9 @@
 
 ;    We would evaluate all "if"s, alternative part of "if" in each "if" except
 ;    the last and we will evaluate the consequent part in the last if. In total
-;    this will make 18 remainder operations evaluated with normal-order
-;    evaluation
-;
+;    this will make 14 operations in "if" predicates and 4 operations in the
+;    consequent of last if, making 18 operations when evaluated with
+;    normal-order evaluation.
 ;
 ; b) Applicative-order evaluation
 ;
