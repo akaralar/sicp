@@ -25,6 +25,10 @@
 
 ; There used to be only 1 call to expmod in each branch of the cond, except the
 ; terminating condition, hence the process was a linear recursive process. Now
-; Louis added another call to expmod, making expmod tree recursive making the
-; execution time grow exponentially, 2^n, with the depth of the tree. The depth
+; Louis added another call to expmod, making expmod tree recursive. Execution
+; time grows exponentially, 2^n, with the depth of the tree. The depth
 ; of the tree is log(n), hence 2^log(n) = n is the order of growth.
+;
+; Another explanation is that at each step we were halving the amount of
+; computation to be made in the first version. With this version, 2 calls are
+; made to that half computation, canceling the effects of halving.
