@@ -72,9 +72,6 @@
         (else
          (* b (fast-expt b (- n 1))))))
 (define (square x) (* x x))
-(define (even? n)
-  (= (remainder n 2) 0))
-
 
 ; 1.2.5 Greatest Common Divisors
 
@@ -126,3 +123,4 @@
         ((fermat-test n)
          (fast-prime? n (- times 1)))
         (else false)))
+

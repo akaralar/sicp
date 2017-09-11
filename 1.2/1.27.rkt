@@ -32,7 +32,7 @@
                  (congruent-modulo? (- a 1))))))
   (congruent-modulo? (- n 1)))
     
-(define (carhmichael-number step)
+(define (carmichael-number step)
   (cond ((= step 0) 561)
         ((= step 1) 1105)
         ((= step 2) 1729)
@@ -42,8 +42,9 @@
         (else 0)))
 
 (define (test-carmichael step)
-  (cond ((= (carmichael-number step) 6) true)
+  (cond ((= (carmichael-number step) 0) true)
         (else (and
-               (all-congruent-modulo (carmichael-number step))
+               (all-congruent-modulo? (carmichael-number step))
                (test-carmichael (+ step 1))))))
 
+(test-carmichael 0)

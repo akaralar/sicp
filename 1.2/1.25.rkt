@@ -10,7 +10,6 @@
 ; Is she correct? Would this procedure serve as well for our fast prime tester?
 ; Explain.
 
-
 (define (fast-expt b n)
   (cond ((= n 0)
          1)
