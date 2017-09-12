@@ -1,6 +1,6 @@
 #lang sicp
 ; Exercise 1.32
-; 1) Show that sum and product (Exercise 1.31) are both special cases of a still
+; 1. Show that sum and product (Exercise 1.31) are both special cases of a still
 ;    more general notion called accumulate that combines a collection of terms,
 ;    using some general accumulation function:
 ;
@@ -14,12 +14,12 @@
 ;    when the terms run out. Write accumulate and show how sum and product can
 ;    both be defined as simple calls to accumulate.
 ;
-; 2) If your accumulate procedure generates a recursive process, write one that
+; 2. If your accumulate procedure generates a recursive process, write one that
 ;    generates an iterative process. If it generates an iterative process,
 ;    write one that generates a recursive process.
 ; -----
 ;
-; Solution 1)
+; 1.
 (define (accumulate combiner null-value term a next b)
   (if (> a b)
       null-value
@@ -43,7 +43,7 @@
 (sum square 1 inc 5)
 (product identity 1 inc 5)
 
-; Solution 2)
+; 2. 
 ; Our accumulate procedure generates a recursive process, so we need to write an
 ; iterative process
 

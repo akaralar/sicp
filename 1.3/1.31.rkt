@@ -1,6 +1,6 @@
 #lang sicp
 ; Exercise 1.31
-; 1) The sum procedure is only the simplest of a vast number of similar
+; 1. The sum procedure is only the simplest of a vast number of similar
 ;    abstractions that can be captured as higher-order procedures. Write an
 ;    analogous procedure called product that returns the product of the values
 ;    of a function at points over a given range. Show how to define factorial in
@@ -9,11 +9,11 @@
 ;
 ;    π/4 = (2*4*4*6*6*8*...)/(3*3*5*5*7*7*...)
 ;
-; 2) If your product procedure generates a recursive process, write one that
+; 2. If your product procedure generates a recursive process, write one that
 ;    generates an iterative process. If it generates an iterative process,
 ;    write one that generates a recursive process.
 ; -----
-; Solution 1)
+; 1.
 (define (product f a next b)
   (if (> a b)
       1
@@ -53,7 +53,7 @@
 (wallis-pi 1000 product)  ; .7850067365262514
 (wallis-pi 10000 product) ; .7853589062479106
 
-; Solution 2)
+; 2.
 ; Our product procedure generates a recursive process, so we need to write an
 ; iterative process
 (define (product-iter f a next b)
