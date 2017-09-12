@@ -6,6 +6,7 @@
 ;    of a function at points over a given range. Show how to define factorial in
 ;    terms of product. Also use product to compute approximations to π using the
 ;    formula
+;
 ;    π/4 = (2*4*4*6*6*8*...)/(3*3*5*5*7*7*...)
 ;
 ; 2) If your product procedure generates a recursive process, write one that
@@ -32,7 +33,7 @@
 ; procedure to use as parameters to the procedure. The product procedure
 ; parameter is useful in the second part of the question, where we write another
 ; product formula with a different process
-(define (wallis-pi n product-formula)
+(define (wallis-pi n product-procedure)
   ; This will give nominator values for Wallis Formula
   (define (wallis-nominator k)
     (cond ((= k 0) 2.0)
@@ -45,7 +46,7 @@
           (else (wallis-denominator (- k 1)))))
   ; This will give the kth term of the Wallis Formula
   (define (term k) (/ (wallis-nominator k) (wallis-denominator k)))
-  (product-formula term 0 inc n))
+  (product-procedure term 0 inc n))
 
 ;                     π/4 = .785398163
 (wallis-pi 100 product)   ; .7815948495107451
