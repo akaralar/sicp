@@ -7,7 +7,9 @@
 ;    terms of product. Also use product to compute approximations to π using the
 ;    formula
 ;
-;    π/4 = (2*4*4*6*6*8*...)/(3*3*5*5*7*7*...)
+;     pi   2 * 4 * 4 * 6 * 6 * 8 ...
+;     -- = -------------------------
+;     4    3 * 3 * 5 * 5 * 7 * 7 ...
 ;
 ; 2. If your product procedure generates a recursive process, write one that
 ;    generates an iterative process. If it generates an iterative process,
