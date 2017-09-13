@@ -12,8 +12,8 @@
   (define (n k) (if (= k 1) x (* x x)))
   (define (d k) (- (* k 2.0) 1.0))
   (define (iter step)
-    (if (= step k)
-        (/ (n step) (d step))
+    (if (> step k)
+        0
         (/ (n step) (- (d step) (iter (+ step 1))))))
   (iter 1))
 
