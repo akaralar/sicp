@@ -33,8 +33,8 @@
 ; 1.
 (define (cont-frac n d k)
   (define (frac x)
-    (if (= x k)
-        (/ (n x) (d x))
+    (if (> x k)
+        0
         (/ (n x) (+ (d x) (frac (+ x 1))))))
   (frac 1))
 
