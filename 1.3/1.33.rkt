@@ -60,9 +60,6 @@
 ; We can define prime? as this
 (define (prime? x) (miller-rabin-test x))
 
-; We need to define inc first
-(define (inc x) (+ x 1))
-
 ; Defining sum of squares of prime numbers in interval (a, b) 
 (define (sum-square-of-prime a b)
   (filtered-accumulate + 0 square a inc b prime?))

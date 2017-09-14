@@ -1,5 +1,4 @@
 #lang sicp
-(provide (all-defined-out))
 ; 1.3.1 Procedures as Arguments
 
 ; Summing a range
