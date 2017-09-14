@@ -32,7 +32,7 @@
         (try next))))
   (try first-guess))
 
-; Define square and cube to
+; Define cubic now
 (define (cubic a b c)
   (define (square x) (* x x))
   (define (cube x) (* (square x) x))
