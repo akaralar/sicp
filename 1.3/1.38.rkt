@@ -10,17 +10,20 @@
 ; Recall cont-frac from 1.37
 (define (cont-frac n d k)
   (define (iter x result)
+    (let ((n (n x))
+          (d (d x)))
     (if (= x 0)
         result
-        (iter (- x 1) (/ (n x) (+ (d x) result)))))
+        (iter (- x 1) (/ n (+ d result))))))
   (iter k 0))
 
-; Di will give ((x/3)+1)*2 when x % 3 = 1
-; and cont-frac = e - 2 -> cont-frac + 2 = e
-(+ 2 (cont-frac
- (lambda (x) 1.0)
- (lambda (x) (if (= (remainder x 3) 1)
-                 (* 2 (+ 1 (/ x 3)))
-                 1))
+; Ni will be 1 and Di will be (floor(x/3)+1)*2 when x % 3 = 2
+(define e-2 (cont-frac
+             (lambda (x) 1.0)
+             (lambda (x) (if (= (remainder x 3) 2)
+                             (* 2 (+ 1 (quotient x 3)))
+                             1))
  100))
-                 
+e-2
+; and e = e-2 + 2 
+(+ e-2 2)
