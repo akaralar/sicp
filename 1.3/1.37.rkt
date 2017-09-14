@@ -52,10 +52,12 @@
 ; 1.
 (define (cont-frac n d k)
   (define (frac x)
-    (if (> x k)
-        0
-        (/ (n x) (+ (d x) (frac (+ x 1))))))
-  (frac 1))
+    (let ((n (n x))
+          (d (d x)))
+      (if (> x k)
+          0
+          (/ n (+ d (frac (+ x 1)))))))
+    (frac 1))
 
 ; function parameter is the cont-frac to use, will be useful in the second part
 (define (infinite-cont function tolerance)
@@ -89,9 +91,11 @@
 
 (define (cont-frac-iter n d k)
   (define (iter x result)
+    (let ((n (n x))
+          (d (d x)))
     (if (= x 0)
         result
-        (iter (- x 1) (/ (n x) (+ (d x) result)))))
+        (iter (- x 1) (/ n (+ d result))))))
   (iter k 0))
 
 (infinite-cont cont-frac-iter tolerance)

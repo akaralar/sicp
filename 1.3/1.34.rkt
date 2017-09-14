@@ -15,6 +15,6 @@
 ; What happens if we (perversely) ask the interpreter to evaluate the
 ; combination (f f)? Explain.
 ; -----
-; It would try to apply (f f) -> (f 2) -> (2 2) which would mean
-; nothing and give an error(??)
+; It would try to apply (f f) -> (f 2) -> (2 2) which would give an error
+; because first term is not a procedure
 
