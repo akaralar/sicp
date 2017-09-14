@@ -13,7 +13,7 @@
 ; integrate cube between 0 and 1 (with n = 100 and n = 1000), and compare the
 ; results to those of the integral procedure shown above.
 ; -----
-;
+
 ; From the book, for summation we have
 (define (sum term a next b)
   (if (> a b)
@@ -23,15 +23,15 @@
 
 ; Defining Simpson's Rule
 (define (simpson-integral f a b n)
-  (define (h) (/ (- b a) n))
-  (define (y k) (f (+ a (* k (h)))))
+  (define h (/ (- b a) n))
+  (define (y k) (f (+ a (* k h))))
   (define (coeff k)
     (cond ((or (= k 0) (= k n)) 1)
           ((even? k) 2)
           (else 4)))
   (define (term k) (* (coeff k) (y k)))
   (define (inc k) (+ k 1))
-  (* (/ (h) 3) (sum term 0 inc n))) 
+  (* (/ h 3) (sum term 0 inc n))) 
 
 (define (cube x) (* x x x))
 (simpson-integral cube 0.0 1.0 100)  ; 0.24999999999999992
