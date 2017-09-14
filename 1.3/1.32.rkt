@@ -37,8 +37,6 @@
 
 ; Define square, inc and identity to test
 (define (square x) (* x x))
-(define (inc x) (+ 1 x))
-(define (identity x) x)
 
 (sum square 1 inc 5)
 (product identity 1 inc 5)

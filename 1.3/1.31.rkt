@@ -22,8 +22,6 @@
       (* (f a) (product f (next a) next b))))
 
 (define (factorial x)
-  ; For factorial, we define an identity procedure
-  (define (identity x) x)
   (product identity 1 inc x))
 (factorial 6)
 
