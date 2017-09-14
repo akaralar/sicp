@@ -30,7 +30,6 @@
           ((even? k) 2)
           (else 4)))
   (define (term k) (* (coeff k) (y k)))
-  (define (inc k) (+ k 1))
   (* (/ h 3) (sum term 0 inc n))) 
 
 (define (cube x) (* x x x))

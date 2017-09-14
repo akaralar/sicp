@@ -18,8 +18,7 @@
         (iter (next a) (+ (term a) result))))
   (iter a 0))
 
-; For testing, we define cube and increment
+; For testing, we define cube
 (define (cube x) (* x x x))
-(define (inc x) (+ x 1))
 
 (sum cube 1 inc 10) ; 3025
