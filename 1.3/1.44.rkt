@@ -10,7 +10,7 @@
 ; Show how to generate the n-fold smoothed function of any given function
 ; using smooth and repeated from Exercise 1.43.
 ; -----
-; define smooth
+; Define smooth
 (define (average x y z) (/ (+ x y z) 3.0))
 (define dx 0.001)
 (define (smooth f)
