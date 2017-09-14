@@ -62,7 +62,7 @@
 ; parameter
 (define (fixed-point-improve f first-guess)
   ((iterative-improve (lambda (x) (< (abs (- x (f x))) tolerance))
-                      (lambda (guess) (f guess)))
+                      f)
    first-guess))
 
 (fixed-point-improve cos 1.0)
