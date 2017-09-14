@@ -39,4 +39,4 @@
   (lambda (x)
     (+ (cube x) (* a (square x)) (* b x) c)))
 
-(newtons-method (cubic 2 3 4) 1.0)
+(newtons-method (cubic 0 0 -8) 1.0)
