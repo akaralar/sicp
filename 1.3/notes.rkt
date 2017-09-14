@@ -1,4 +1,5 @@
 #lang sicp
+(provide (all-defined-out))
 ; 1.3.1 Procedures as Arguments
 
 ; Summing a range
@@ -174,3 +175,77 @@
 (sqrt2 9)
 (sqrt2 10)
 (sqrt2 16)
+
+; 1.3.4 Procedures as Returned Values
+
+(define (average-damp f)
+  (lambda (x)
+    (average x (f x))))
+
+((average-damp square) 10)
+((average-damp square) 3)
+
+(define (sqrt-damp x)
+  (fixed-point
+   (average-damp
+    (lambda (y) (/ x y)))
+   1.0))
+
+(sqrt-damp 12)
+(sqrt-damp 25)
+
+(define (cube-root x)
+  (fixed-point
+   (average-damp
+    (lambda (y)
+      (/ x (square y))))
+   1.0))
+
+(cube-root 27)
+
+; Newton's Method
+
+(define (deriv g)
+  (lambda (x)
+    (/ (- (g (+ x dx)) (g x))
+       dx)))
+(define dx 0.00001)
+
+((deriv cube) 5)
+
+(define (newton-transform g)
+  (lambda (x)
+    (- x (/ (g x)
+            ((deriv g) x)))))
+
+(define (newtons-method g guess)
+  (fixed-point (newton-transform g) guess))
+
+(define (sqrt-newton x)
+  (newtons-method
+   (lambda (y)
+     (- (square y) x))
+   1.0))
+
+(sqrt-newton 12)
+(sqrt-newton 25)
+(sqrt-newton 738)
+
+; Abstractions and first-class procedures
+
+(define (fixed-point-of-transform g transform guess)
+  (fixed-point (transform g) guess))
+
+(define (sqrt-trans x)
+  (fixed-point-of-transform (lambda (y) (/ x y))
+                            average-damp
+                            1.0))
+                            
+(sqrt-trans 12)
+(sqrt-trans 25)
+(sqrt-trans 738)
+
+(define (sqrt-newton-2 x)
+  (fixed-point-of-transform (lambda (y) (- (square y) x))
+                            newton-transform
+                            1.0))
