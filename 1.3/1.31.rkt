@@ -21,13 +21,9 @@
       1
       (* (f a) (product f (next a) next b))))
 
-; For factorial, we define an identity procedure
-(define (identity x) x)
-
-; And an incrementing function to give next values
-(define (inc x) (+ x 1))
-
 (define (factorial x)
+  ; For factorial, we define an identity procedure
+  (define (identity x) x)
   (product identity 1 inc x))
 (factorial 6)
 
