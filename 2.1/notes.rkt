@@ -62,6 +62,7 @@
   a
   (gcd b (remainder a b))))
 
+(#%provide make-rat-gcd)
 (define (make-rat-gcd n d)
   (let ((g (gcd n d)))
     (cons (/ n g)
@@ -72,7 +73,21 @@
                    (* (numer y) (denom x)))
                 (* (denom x) (denom y))))
 
+(#%provide print-rat)
 (print-rat
  (add-rat-gcd one-third one-third))
 
 ; 2.1.2 Abstraction Barriers
+
+; 2.1.3 What is meant by Data?
+(define (cons-new x y)
+  (define (dispatch m)
+    (cond ((= m 0) x)
+          ((= m 1) y)
+          (else (error "Argument not 0 or 1: CONS" m))))
+  dispatch)
+
+(define (car-new z) (z 0))
+(define (cdr-new z) (z 1))
+
+; 2.1.4 Extended Exercise: Interval Arithmetic
