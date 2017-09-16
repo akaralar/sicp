@@ -74,3 +74,5 @@
 
 (print-rat
  (add-rat-gcd one-third one-third))
+
+; 2.1.2 Abstraction Barriers
