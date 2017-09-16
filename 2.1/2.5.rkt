@@ -7,32 +7,21 @@
 ; -----
 (define x 2)
 (define y 3)
-
 (define (cons a b) (* (expt x a) (expt y b)))
+
+(define (find-roots a b result completion)
+  (cond ((= (remainder result x) 0)
+         (find-roots (+ a 1) b (/ result x) completion))
+        ((= (remainder result y) 0)
+         (find-roots a (+ b 1) (/ result y) completion))
+        (else (completion a b))))
+(define (car i)
+  (find-roots 0 0 i (lambda (a b) a)))
+(define (cdr i)
+  (find-roots 0 0 i (lambda (a b) b)))
 
 (define a 3)
 (define b 4)
 (cons a b)
-(define (car i)
-  (define (iter a b result)
-    (cond ((= (remainder result x) 0)
-           (iter (+ a 1) b (/ result x)))
-          ((= (remainder result y) 0)
-           (iter a (+ b 1) (/ result y)))
-          (else a)))
-  (iter 0 0 i))
 (= (car (cons a b)) a)
-
-(define (cdr i)
-  (define (iter a b result)
-    (cond ((= (remainder result x) 0)
-           (iter (+ a 1) b (/ result x)))
-          ((= (remainder result y) 0)
-           (iter a (+ b 1) (/ result y)))
-          (else b)))
-  (iter 0 0 i))
 (= (cdr (cons a b)) b)
-
-           
-           
-          
