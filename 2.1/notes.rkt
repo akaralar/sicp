@@ -62,7 +62,6 @@
   a
   (gcd b (remainder a b))))
 
-(#%provide make-rat-gcd)
 (define (make-rat-gcd n d)
   (let ((g (gcd n d)))
     (cons (/ n g)
@@ -73,7 +72,6 @@
                    (* (numer y) (denom x)))
                 (* (denom x) (denom y))))
 
-(#%provide print-rat)
 (print-rat
  (add-rat-gcd one-third one-third))
 
@@ -91,3 +89,4 @@
 (define (cdr-new z) (z 1))
 
 ; 2.1.4 Extended Exercise: Interval Arithmetic
+; see exercise 2.7 and onwards
