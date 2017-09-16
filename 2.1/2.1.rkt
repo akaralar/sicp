@@ -11,15 +11,22 @@
   a
   (gcd b (remainder a b))))
 
+(define (make-rat-gcd n d)
+  (let ((g (gcd n d)))
+    (cons (/ n g)
+          (/ d g))))
+
+; Now we need to make a better rat that handles negatives
 (define (better-make-rat n d)
-  (let ((g (gcd (abs n) (abs d)))
-        (negative? (lambda (x) (< x 0))))
+  (define (negative? x) (< x 0))
+  (define (negative-rat? n d)
+    (and (or (negative? n)
+             (negative? d))
+         (not (and (negative? n)
+                   (negative? d)))))
+  (let ((g (gcd (abs n) (abs d))))
     (cons (/ (abs n) g)
-          (if (and (or
-                    (negative? n)
-                    (negative? d))
-                   (not (and (negative? n)
-                             (negative? d))))
+          (if (negative-rat? n d)
               (/ (- (abs d)) g)
               (/ (abs d) g)))))
 (define (numer x) (car x))
