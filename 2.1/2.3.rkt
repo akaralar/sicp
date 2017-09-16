@@ -18,6 +18,8 @@
   (display (y-point p))
   (display ")"))
 
+; Defining rects
+; 1. A rect is a point for origin and a size
 ; Define size to represent rectangle
 (define (make-size width height) (cons width height))
 (define (width-size size) (car size))
@@ -28,8 +30,6 @@
   (display ", height: ")
   (display (height-size p)))
 
-; Defining rects
-; 1. A rect is a point for origin and a size
 (define (make-rect origin size) (cons origin size))
 (define (origin rect) (car rect))
 (define (size rect) (cdr rect))
@@ -40,6 +40,7 @@
   (display ", ")
   (print-size (size r))
   (newline))
+
 ; 2. A rect is two non-neigbour points
 (define (make-rect-2 p1 p2) (cons p1 p2))
 (define (p1-rect rect) (car rect))
@@ -52,6 +53,7 @@
 ; 1. representation
 ;(define (width-rect rect) (width-size (size rect)))
 ;(define (height-rect rect) (height-size (size rect)))
+
 ; 2. representation
 (define (width-rect rect)
   (let ((p1 (p1-rect rect))
@@ -70,12 +72,12 @@
 (define (area rect)
   (* (width-rect rect) (height-rect rect)))
 
-; 1. representation
+; 1.
 ;(define test-rect (make-rect (make-point 3 5) (make-size 100 50)))
 ;(print-rect test-rect)
 ;(perimeter test-rect)
 ;(area test-rect)
-; 2. representation
+; 2.
 (define test-rect-2 (make-rect-2 (make-point 3 5) (make-point 53 105)))
 (perimeter test-rect-2)
 (area test-rect-2)
