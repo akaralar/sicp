@@ -30,6 +30,3 @@
 (width-interval (div-interval test-interval-1 test-interval-2))
 ; For multiplication and division, the width doesn't seem to be a function of
 ; widths of intervals
-
-  
-
